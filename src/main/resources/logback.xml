@@ -1,0 +1,27 @@
+<configuration debug="false">
+	<contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator" />
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		<encoder>
+			<!-- <pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern> -->
+			<pattern>%-5level %logger{10} - %msg [%X{req.remoteHost} %X{req.requestURI}]%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="trace">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+	<logger name="org.springframework" level="WARN" />
+	<logger name="org.hibernate" level="INFO" />
+	<logger name="org.apache" level="INFO" />
+	<logger name="javax" level="INFO" />
+	<logger name="com.ajah.spring.jdbc" level="INFO" />
+	<logger name="com.ajah.util" level="INFO" />
+	<logger name="com.ajah.http.cache" level="DEBUG" />
+<!-- 	<logger name="ajah.sql" level="TRACE" /> -->
+	<logger name="ajah.sql" level="INFO" />
+	<logger name="com.sun.xml" level="INFO" />
+
+</configuration>
